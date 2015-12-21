@@ -3,25 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Code Blocks中配置OpenGL方法 | Sophia&#39;s blog</title>
+  <title>Category: Data mining | Sophia&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于在Code blocks中配置OpenGL的方法，在网上一直没有找到实用的方法，后来在实验室师兄的帮助下终于配置成功了，现把配置过程记录如下。
-(1)下载codeblocks，最好是带mingw的版本，不然则要自己配置mingw；
-(2)下载GLUT bin文件，最好在OpenGL官网上下载最新版本，解压.将glut32.dll复制到C:\windows\system目录;将glut32.li">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Code Blocks中配置OpenGL方法">
-<meta property="og:url" content="http://sophia07blog.cf/2015/11/24/codebloks/index.html">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sophia's blog">
+<meta property="og:url" content="http://sophia07blog.cf/categories/Data-mining/index.html">
 <meta property="og:site_name" content="Sophia's blog">
-<meta property="og:description" content="关于在Code blocks中配置OpenGL的方法，在网上一直没有找到实用的方法，后来在实验室师兄的帮助下终于配置成功了，现把配置过程记录如下。
-(1)下载codeblocks，最好是带mingw的版本，不然则要自己配置mingw；
-(2)下载GLUT bin文件，最好在OpenGL官网上下载最新版本，解压.将glut32.dll复制到C:\windows\system目录;将glut32.li">
-<meta property="og:image" content="http://7xo792.com1.z0.glb.clouddn.com/test.jpg">
-<meta property="og:updated_time" content="2015-11-24T14:44:29.296Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Code Blocks中配置OpenGL方法">
-<meta name="twitter:description" content="关于在Code blocks中配置OpenGL的方法，在网上一直没有找到实用的方法，后来在实验室师兄的帮助下终于配置成功了，现把配置过程记录如下。
-(1)下载codeblocks，最好是带mingw的版本，不然则要自己配置mingw；
-(2)下载GLUT bin文件，最好在OpenGL官网上下载最新版本，解压.将glut32.dll复制到C:\windows\system目录;将glut32.li">
+<meta name="twitter:title" content="Sophia's blog">
+<meta name="twitter:description">
   
   
     <link rel="icon" href="img/favicon.png">
@@ -137,101 +129,49 @@
 </aside>
 
       
-      <section id="main"><article id="post-codebloks" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+      <section id="main">
+    <section class="archives-wrap">
+    <div class="archive-category-wrap">
+      <span class="archive-category">Data mining</span>
+    </div>
+    <div class="archives">
     
-      
-	
-		<img src="http://7xo792.com1.z0.glb.clouddn.com/pc-tools-header.jpg" class="article-banner">
-	
-
-
-
+      <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
     
-    
-    
-      <header class="article-header">
-        
+    <div class="archive-article-thumbnail">
+      <a href="/2015/12/10/Spectral Clustering/" class="thumbnail">
   
-    <h1 class="article-title" itemprop="name">
-      Code Blocks中配置OpenGL方法
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg)" alt="谱聚类" class="thumbnail-image"></span>
+  
+</a>
+    </div>
+    
+    <header class="archive-article-header">
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2015/12/10/Spectral Clustering/">谱聚类</a>
     </h1>
   
 
-        <div class="article-meta">
-          
-  <div class="article-date">
+      
+        
+  <div class="archive-article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/11/24/codebloks/">
-      <time datetime="2015-11-24T14:44:29.296Z" itemprop="datePublished">2015-11-24</time>
+    <a href="/2015/12/10/Spectral Clustering/">
+      <time datetime="2015-12-10T03:24:11.937Z" itemprop="datePublished">2015 Dec 10</time>
     </a>
   </div>
 
 
-          
-  <div class="article-category">
-  	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Tools/">Tools</a>
+      
+    </header>
   </div>
-
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-                
-        <p>关于在Code blocks中配置OpenGL的方法，在网上一直没有找到实用的方法，后来在实验室师兄的帮助下终于配置成功了，现把配置过程记录如下。</p>
-<p>(1)下载codeblocks，最好是带mingw的版本，不然则要自己配置mingw；</p>
-<p>(2)下载GLUT bin文件，最好在OpenGL官网上下载最新版本，解压.<br>将glut32.dll复制到C:\windows\system目录;<br>将glut32.lib复制到mingw\lib目录;<br>将glut.h复制到mingw\include\GL目录;<br>mingw为你的mingw目录，如果是codeblocks自带的，则在codeblocks安装目录下；</p>
-<p>(3) 新建一个空工程 empty project;</p>
-<p>(4) 配置工程，右键单击新建的工程，打开Build Options-&gt;Linker Settings，在Link libraries中添加MinGW\lib\glut32.lib,MinGW\lib\libopengl32.a,MinGW\lib\libglu32.a，点击OK;</p>
-<p>(5) 在工程中新建test.c测试文件，代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;GL/gl.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;GL/glut.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myDisplay</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"> glClear(GL_COLOR_BUFFER_BIT);</span><br><span class="line"> glRectf(-<span class="number">0.5f</span>, -<span class="number">0.5f</span>, <span class="number">0.5f</span>, <span class="number">0.5f</span>);</span><br><span class="line"> glFlush();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line"> glutInit(&amp;argc, argv);</span><br><span class="line"> glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);</span><br><span class="line"> glutInitWindowPosition(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"> glutInitWindowSize(<span class="number">400</span>, <span class="number">400</span>);</span><br><span class="line"> glutCreateWindow(<span class="string">"first OpenGL program"</span>);</span><br><span class="line">  glutDisplayFunc(&amp;myDisplay);</span><br><span class="line"> glutMainLoop();</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(6)编译运行程序，效果如下：</p>
-<p><img src="http://7xo792.com1.z0.glb.clouddn.com/test.jpg" alt=""></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://sophia07blog.cf/2015/11/24/codebloks/" data-id="cihdh9men0000iknlrrfr42dg" class="article-share-link">分享到</a>
-      
-        <a href="http://sophia07blog.cf/2015/11/24/codebloks/#ds-thread" class="article-comment-link">评论</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/12/10/Spectral Clustering/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          谱聚类
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/11/08/hanoi_tower/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">汉诺塔</div>
-    </a>
-  
-</nav>
-
-
-  
 </article>
-
-
-  <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="http://sophia07blog.cf/2015/11/24/codebloks/" data-title="Code Blocks中配置OpenGL方法" data-url="http://sophia07blog.cf/2015/11/24/codebloks/">
-      <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
-      </div>
-  </section>
-
-</section>
+    
+    </div></section>
+    </section>
       
         <aside id="sidebar">
   

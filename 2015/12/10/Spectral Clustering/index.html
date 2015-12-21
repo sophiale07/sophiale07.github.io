@@ -3,25 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Code Blocks中配置OpenGL方法 | Sophia&#39;s blog</title>
+  <title>谱聚类 | Sophia&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于在Code blocks中配置OpenGL的方法，在网上一直没有找到实用的方法，后来在实验室师兄的帮助下终于配置成功了，现把配置过程记录如下。
-(1)下载codeblocks，最好是带mingw的版本，不然则要自己配置mingw；
-(2)下载GLUT bin文件，最好在OpenGL官网上下载最新版本，解压.将glut32.dll复制到C:\windows\system目录;将glut32.li">
+  <meta name="description" content="1.引言谱聚类是一种在探索性数据分析中使用最为广泛的技术，其应用涉及到统计、计算科学、生物学、社会科学或者心理学。几乎每个科学领域在处理实验数据过程中，人们都尝试通过识别数据中具有“相似特征”的类别来获取该数据的第一印象。本文将为读者介绍谱聚类方法。相比于传统算法如k-means或者最短距离法(single linkage)，谱聚类具有很多基本的优点。通过谱聚类获得的结果通常要比传统聚类获得的结果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Code Blocks中配置OpenGL方法">
-<meta property="og:url" content="http://sophia07blog.cf/2015/11/24/codebloks/index.html">
+<meta property="og:title" content="谱聚类">
+<meta property="og:url" content="http://sophia07blog.cf/2015/12/10/Spectral Clustering/index.html">
 <meta property="og:site_name" content="Sophia's blog">
-<meta property="og:description" content="关于在Code blocks中配置OpenGL的方法，在网上一直没有找到实用的方法，后来在实验室师兄的帮助下终于配置成功了，现把配置过程记录如下。
-(1)下载codeblocks，最好是带mingw的版本，不然则要自己配置mingw；
-(2)下载GLUT bin文件，最好在OpenGL官网上下载最新版本，解压.将glut32.dll复制到C:\windows\system目录;将glut32.li">
-<meta property="og:image" content="http://7xo792.com1.z0.glb.clouddn.com/test.jpg">
-<meta property="og:updated_time" content="2015-11-24T14:44:29.296Z">
+<meta property="og:description" content="1.引言谱聚类是一种在探索性数据分析中使用最为广泛的技术，其应用涉及到统计、计算科学、生物学、社会科学或者心理学。几乎每个科学领域在处理实验数据过程中，人们都尝试通过识别数据中具有“相似特征”的类别来获取该数据的第一印象。本文将为读者介绍谱聚类方法。相比于传统算法如k-means或者最短距离法(single linkage)，谱聚类具有很多基本的优点。通过谱聚类获得的结果通常要比传统聚类获得的结果">
+<meta property="og:updated_time" content="2015-12-10T03:24:11.937Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Code Blocks中配置OpenGL方法">
-<meta name="twitter:description" content="关于在Code blocks中配置OpenGL的方法，在网上一直没有找到实用的方法，后来在实验室师兄的帮助下终于配置成功了，现把配置过程记录如下。
-(1)下载codeblocks，最好是带mingw的版本，不然则要自己配置mingw；
-(2)下载GLUT bin文件，最好在OpenGL官网上下载最新版本，解压.将glut32.dll复制到C:\windows\system目录;将glut32.li">
+<meta name="twitter:title" content="谱聚类">
+<meta name="twitter:description" content="1.引言谱聚类是一种在探索性数据分析中使用最为广泛的技术，其应用涉及到统计、计算科学、生物学、社会科学或者心理学。几乎每个科学领域在处理实验数据过程中，人们都尝试通过识别数据中具有“相似特征”的类别来获取该数据的第一印象。本文将为读者介绍谱聚类方法。相比于传统算法如k-means或者最短距离法(single linkage)，谱聚类具有很多基本的优点。通过谱聚类获得的结果通常要比传统聚类获得的结果">
   
   
     <link rel="icon" href="img/favicon.png">
@@ -137,12 +130,12 @@
 </aside>
 
       
-      <section id="main"><article id="post-codebloks" class="article article-type-post" itemscope itemprop="blogPost">
+      <section id="main"><article id="post-Spectral Clustering" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       
 	
-		<img src="http://7xo792.com1.z0.glb.clouddn.com/pc-tools-header.jpg" class="article-banner">
+		<img src="http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg" class="article-banner">
 	
 
 
@@ -154,7 +147,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Code Blocks中配置OpenGL方法
+      谱聚类
     </h1>
   
 
@@ -162,8 +155,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/11/24/codebloks/">
-      <time datetime="2015-11-24T14:44:29.296Z" itemprop="datePublished">2015-11-24</time>
+    <a href="/2015/12/10/Spectral Clustering/">
+      <time datetime="2015-12-10T03:24:11.937Z" itemprop="datePublished">2015-12-10</time>
     </a>
   </div>
 
@@ -171,7 +164,7 @@
           
   <div class="article-category">
   	<i class="fa fa-folder"></i>
-    <a class="article-category-link" href="/categories/Tools/">Tools</a>
+    <a class="article-category-link" href="/categories/Data-mining/">Data mining</a>
   </div>
 
         </div>
@@ -180,21 +173,19 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <p>关于在Code blocks中配置OpenGL的方法，在网上一直没有找到实用的方法，后来在实验室师兄的帮助下终于配置成功了，现把配置过程记录如下。</p>
-<p>(1)下载codeblocks，最好是带mingw的版本，不然则要自己配置mingw；</p>
-<p>(2)下载GLUT bin文件，最好在OpenGL官网上下载最新版本，解压.<br>将glut32.dll复制到C:\windows\system目录;<br>将glut32.lib复制到mingw\lib目录;<br>将glut.h复制到mingw\include\GL目录;<br>mingw为你的mingw目录，如果是codeblocks自带的，则在codeblocks安装目录下；</p>
-<p>(3) 新建一个空工程 empty project;</p>
-<p>(4) 配置工程，右键单击新建的工程，打开Build Options-&gt;Linker Settings，在Link libraries中添加MinGW\lib\glut32.lib,MinGW\lib\libopengl32.a,MinGW\lib\libglu32.a，点击OK;</p>
-<p>(5) 在工程中新建test.c测试文件，代码如下：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;GL/gl.h&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span> <span class="string">&lt;GL/glut.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myDisplay</span><span class="params">(<span class="keyword">void</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line"> glClear(GL_COLOR_BUFFER_BIT);</span><br><span class="line"> glRectf(-<span class="number">0.5f</span>, -<span class="number">0.5f</span>, <span class="number">0.5f</span>, <span class="number">0.5f</span>);</span><br><span class="line"> glFlush();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span><br><span class="line"></span>&#123;</span><br><span class="line"> glutInit(&amp;argc, argv);</span><br><span class="line"> glutInitDisplayMode(GLUT_RGB | GLUT_SINGLE);</span><br><span class="line"> glutInitWindowPosition(<span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"> glutInitWindowSize(<span class="number">400</span>, <span class="number">400</span>);</span><br><span class="line"> glutCreateWindow(<span class="string">"first OpenGL program"</span>);</span><br><span class="line">  glutDisplayFunc(&amp;myDisplay);</span><br><span class="line"> glutMainLoop();</span><br><span class="line"> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>(6)编译运行程序，效果如下：</p>
-<p><img src="http://7xo792.com1.z0.glb.clouddn.com/test.jpg" alt=""></p>
+        <h1 id="1-引言">1.引言</h1><p>谱聚类是一种在探索性数据分析中使用最为广泛的技术，其应用涉及到统计、计算科学、生物学、社会科学或者心理学。几乎每个科学领域在处理实验数据过程中，人们都尝试通过识别数据中具有“相似特征”的类别来获取该数据的第一印象。本文将为读者介绍谱聚类方法。相比于传统算法如k-means或者最短距离法(single linkage)，谱聚类具有很多基本的优点。通过谱聚类获得的结果通常要比传统聚类获得的结果要好，并且谱聚类非常易于实现，能够通过标准线性代数方法有效地求解。</p>
+<p>本文主要介绍谱聚类方法。我们分析了关于谱聚类不同的观点和谱聚类的工作机制。除了基本的线性代数，读者不需要具有特定的数学背景。同时，由于关于谱聚类的文献数量太多，我们不再赘述关于谱聚类的所有文献。本文前两个部分主要是逐步介绍关于谱聚类所使用的数学对象：相似图在第二部分，图的拉普拉斯矩阵在第三部分。谱聚类算法的介绍在第四部分。接下来的三个部分将解释为什么这些算法有作用：第五部分描述了图的划分方法，第六部分是随机游走(random walk)的观点, 第七部分是扰动理论(perturbation theory)。在第八部分中，我们研究了一些与谱聚类相关的实际问题，第九部分讨论了一些谱聚类的扩展和关于谱聚类文献。</p>
+<h1 id="2-相似图">2.相似图</h1><p>给一组数据点$x_1,…,x_n$,在每一对数据点$x_i$和 $x<em>j$ 之间定义相似度$s</em>{ij}$,聚类的直接目标是把数据点分为几个不同的类别，使得同一类别中数据点的相似度最大，不同类别中数据点的相似度最小。如果我们只知道数据点之间的相似度信息，一个表示这些数据点比较好的方法是相似图的形式(similarity graph)$G=(V,E)$。 相似图中每一个顶点$v_i$表示一个数据点$x_i$。如果两个顶点$x_i$和$x<em>j$之间的相似度$s</em>{ij}$为正并且大于某个确定的阈值，那么这两个顶点是以$s_{ij}$为权重的边连接的。现在，聚类问题可以重新定义为相似图问题：我们需要找到一个这样的分割，不同类别之间的边具有非常低的权重，而同一类别中的边具有比较高的权重(这意味着在同一类中的数据点是相似的)。为了能够形式化这样的表示，我们首先介绍一些图的基本定义，简要讨论一下我们将要研究的图的种类。</p>
+<h2 id="2-1_图的定义">2.1 图的定义</h2><p>$G=(V,E)$是一个无向图，顶点集为$V={v_1,…,v_n}$. 下面我们假定图$G$是有权的，也就是说每两个顶点$v_i和v<em>j$有一个非负的权重$w</em>{ij}&gt;=0$。图的加权邻接矩阵是$W=(w<em>{ij})</em>{i,j=1,…,n}$。如果$w_{ij}=0$意味着顶点$v_i$和$v<em>j$之间没有边连接。因为$G$是无向图，我们令$w</em>{ij}=w_{ji}$。顶点$v_i \in V$的度定义如下：</p>
+<p>$d<em>i=\sum{n}{j=1}w</em>{ij}.$</p>
+<p>请注意，事实上，上式只计算了与$v_i$邻接的所有顶点，其他顶点的权重都为0。度矩阵$D$是对角矩阵，其对角线上的度为$d_i,…,d_n$。给定一个顶点子集$A \subset B$，我们用</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sophia07blog.cf/2015/11/24/codebloks/" data-id="cihdh9men0000iknlrrfr42dg" class="article-share-link">分享到</a>
+      <a data-url="http://sophia07blog.cf/2015/12/10/Spectral Clustering/" data-id="cihm07sv90000f0nlilm2ilhq" class="article-share-link">分享到</a>
       
-        <a href="http://sophia07blog.cf/2015/11/24/codebloks/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://sophia07blog.cf/2015/12/10/Spectral Clustering/#ds-thread" class="article-comment-link">评论</a>
       
       
     </footer>
@@ -203,19 +194,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/10/Spectral Clustering/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/21/Data clustering 50 years beyond K_means/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          谱聚类
+          Data clustering 50 years beyond K-means
         
       </div>
     </a>
   
   
-    <a href="/2015/11/08/hanoi_tower/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/11/24/codebloks/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">汉诺塔</div>
+      <div class="article-nav-title">Code Blocks中配置OpenGL方法</div>
     </a>
   
 </nav>
@@ -226,7 +217,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="http://sophia07blog.cf/2015/11/24/codebloks/" data-title="Code Blocks中配置OpenGL方法" data-url="http://sophia07blog.cf/2015/11/24/codebloks/">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://sophia07blog.cf/2015/12/10/Spectral Clustering/" data-title="谱聚类" data-url="http://sophia07blog.cf/2015/12/10/Spectral Clustering/">
       <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
       </div>
   </section>

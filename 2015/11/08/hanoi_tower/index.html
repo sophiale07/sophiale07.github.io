@@ -5,28 +5,22 @@
   
   <title>汉诺塔 | Sophia&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="问题描述有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。
+  <meta name="description" content="1. 问题描述有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。
 描述简化：把A柱上的n个盘子移动到C柱，其中可以借用B柱。
-简单分析假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：
-
-状态0 A">
+2. 简单分析假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汉诺塔">
-<meta property="og:url" content="http://sophia07blog.cf/2015/10/23/hanoi_tower/index.html">
+<meta property="og:url" content="http://sophia07blog.cf/2015/11/08/hanoi_tower/index.html">
 <meta property="og:site_name" content="Sophia's blog">
-<meta property="og:description" content="问题描述有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。
+<meta property="og:description" content="1. 问题描述有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。
 描述简化：把A柱上的n个盘子移动到C柱，其中可以借用B柱。
-简单分析假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：
-
-状态0 A">
-<meta property="og:updated_time" content="2015-11-22T14:21:45.744Z">
+2. 简单分析假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：">
+<meta property="og:updated_time" content="2015-11-30T14:37:29.870Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汉诺塔">
-<meta name="twitter:description" content="问题描述有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。
+<meta name="twitter:description" content="1. 问题描述有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。
 描述简化：把A柱上的n个盘子移动到C柱，其中可以借用B柱。
-简单分析假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：
-
-状态0 A">
+2. 简单分析假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：">
   
   
     <link rel="icon" href="img/favicon.png">
@@ -110,7 +104,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        2
+        4
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -167,8 +161,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/10/23/hanoi_tower/">
-      <time datetime="2015-10-22T16:00:00.000Z" itemprop="datePublished">2015-10-23</time>
+    <a href="/2015/11/08/hanoi_tower/">
+      <time datetime="2015-11-07T16:00:00.000Z" itemprop="datePublished">2015-11-08</time>
     </a>
   </div>
 
@@ -185,9 +179,9 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <h2 id="问题描述">问题描述</h2><p>有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。</p>
+        <h2 id="1-_问题描述">1. 问题描述</h2><p>有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。</p>
 <p>描述简化：把A柱上的n个盘子移动到C柱，其中可以借用B柱。</p>
-<h2 id="简单分析">简单分析</h2><p>假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：</p>
+<h2 id="2-_简单分析">2. 简单分析</h2><p>假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：</p>
 <ol>
 <li><p><strong>状态0</strong> A: 按顺序堆放的n个盘子。 B：空的。 C：空的。<br>目标需要把A上的n个盘子移动到C，而且C盘最下面的盘子应该是最大的盘子，标号为n。要取得A上的第n个盘子，需要把它上面的n-1个盘子拿开放在B柱上。当然B柱上的盘子也是按照大在下小在上的原则堆放的。</p>
 <p>这一步完成之后三个塔变为状态一。</p>
@@ -195,9 +189,11 @@
 <li><p><strong>状态1</strong> A：只有最大的一个盘子。 B:按规则堆放的n-1个盘子。 C:空的。<br>这时候可以直接把A上的最大盘移动到C盘，移动后的状态：中间状态——A：空的。B：n-1个盘子。C：有一个最大盘（第n个盘子）。<br>这时候C柱其实可以看做空的，因为剩下的的所有盘子都比它小，任何一个盘子都可以放在C柱上。所以现在的状态： 中间状态——A：空的。B：n-1个盘子。C：空的。<br>现在的问题和原问题有些相似之处，如果把B柱上的n-1个盘子移动到A柱上，那么现在的问题和原问题相比就只是规模变小了而已。把B上的n-1个盘子移动到A上，其实和上文中把n-1个盘子从A柱移动到B柱是一样的，只是柱子的名称换了一下而已。（如果写成函数，只是参数的调用顺序改变了而已）</p>
 </li>
 </ol>
-<p>3.<strong>状态2</strong> A：按顺序对方的n-1个盘子。B：空的。C：按顺序堆放的第n个盘子（可看为空柱）</p>
+<ol>
+<li><strong>状态2</strong> A：按顺序对方的n-1个盘子。B：空的。C：按顺序堆放的第n个盘子（可看为空柱）</li>
+</ol>
 <p>此时我们完成了一次完美的递归，从状态0到状态2，除了规模变小，其他方面没有任何区别了。</p>
-<h2 id="算法实现">算法实现</h2><h3 id="定义函数:">定义函数:</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hanoi（a,b,c,<span class="keyword">n</span>）<span class="comment">//表示把a上的n个盘子移动到c上，其中可以用到b。</span></span><br><span class="line"><span class="keyword">move</span>（<span class="keyword">m</span>,<span class="keyword">n</span>）<span class="comment">//表示把m上的盘子移动到n上</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-_算法实现">3. 算法实现</h2><h3 id="定义函数:">定义函数:</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hanoi（a,b,c,<span class="keyword">n</span>）<span class="comment">//表示把a上的n个盘子移动到c上，其中可以用到b。</span></span><br><span class="line"><span class="keyword">move</span>（<span class="keyword">m</span>,<span class="keyword">n</span>）<span class="comment">//表示把m上的盘子移动到n上</span></span><br></pre></td></tr></table></figure>
 <h3 id="算法流程：">算法流程：</h3><ol>
 <li>把A上的n-1个移动到B：Hanoi（a,c,b,n-1）//状态1</li>
 <li>把A上的最后一个大盘子移动到C：move（a,c）</li>
@@ -208,9 +204,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sophia07blog.cf/2015/10/23/hanoi_tower/" data-id="cigw93ilb0000dknlwdvww05z" class="article-share-link">分享到</a>
+      <a data-url="http://sophia07blog.cf/2015/11/08/hanoi_tower/" data-id="cigw93ilb0000dknlwdvww05z" class="article-share-link">分享到</a>
       
-        <a href="http://sophia07blog.cf/2015/10/23/hanoi_tower/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://sophia07blog.cf/2015/11/08/hanoi_tower/#ds-thread" class="article-comment-link">评论</a>
       
       
     </footer>
@@ -237,7 +233,7 @@
 
 
   <section id="comments">
-    <div id="ds-thread" class="ds-thread" data-thread-key="http://sophia07blog.cf/2015/10/23/hanoi_tower/" data-title="汉诺塔" data-url="http://sophia07blog.cf/2015/10/23/hanoi_tower/">
+    <div id="ds-thread" class="ds-thread" data-thread-key="http://sophia07blog.cf/2015/11/08/hanoi_tower/" data-title="汉诺塔" data-url="http://sophia07blog.cf/2015/11/08/hanoi_tower/">
       <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by DuoShuo.</a></noscript>
       </div>
   </section>
@@ -251,6 +247,40 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul id="recent-post" class="">
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/21/Data clustering 50 years beyond K_means/" class="thumbnail">
+  
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg)" alt="Data clustering 50 years beyond K-means" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a></p>
+              <p class="item-title"><a href="/2015/12/21/Data clustering 50 years beyond K_means/" class="title">Data clustering 50 years beyond K-means</a></p>
+              <p class="item-date"><time datetime="2015-12-21T05:42:00.192Z" itemprop="datePublished">2015-12-21</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/10/Spectral Clustering/" class="thumbnail">
+  
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg)" alt="谱聚类" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/Data-mining/">Data mining</a></p>
+              <p class="item-title"><a href="/2015/12/10/Spectral Clustering/" class="title">谱聚类</a></p>
+              <p class="item-date"><time datetime="2015-12-10T03:24:11.937Z" itemprop="datePublished">2015-12-10</time></p>
+            </div>
+          </li>
         
           <li>
             
@@ -272,7 +302,7 @@
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/10/23/hanoi_tower/" class="thumbnail">
+              <a href="/2015/11/08/hanoi_tower/" class="thumbnail">
   
     <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/tower1.jpg)" alt="汉诺塔" class="thumbnail-image"></span>
   
@@ -281,8 +311,8 @@
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Algorithms/">Algorithms</a></p>
-              <p class="item-title"><a href="/2015/10/23/hanoi_tower/" class="title">汉诺塔</a></p>
-              <p class="item-date"><time datetime="2015-10-22T16:00:00.000Z" itemprop="datePublished">2015-10-23</time></p>
+              <p class="item-title"><a href="/2015/11/08/hanoi_tower/" class="title">汉诺塔</a></p>
+              <p class="item-date"><time datetime="2015-11-07T16:00:00.000Z" itemprop="datePublished">2015-11-08</time></p>
             </div>
           </li>
         
@@ -295,7 +325,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-mining/">Data mining</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -308,7 +338,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -353,6 +383,14 @@
 
 <script src="/js/script.js" type="text/javascript"></script>
 
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </div>
 </body>
 </html>

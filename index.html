@@ -97,7 +97,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        2
+        4
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -130,6 +130,136 @@
 
       
       <section id="main">
+      <article id="post-Data clustering 50 years beyond K_means" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+	
+		<a href="/2015/12/21/Data clustering 50 years beyond K_means/" itemprop="url"><img src="http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg" class="article-banner"></a>
+	
+
+
+
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/21/Data clustering 50 years beyond K_means/">Data clustering 50 years beyond K-means</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/12/21/Data clustering 50 years beyond K_means/">
+      <time datetime="2015-12-21T05:42:00.192Z" itemprop="datePublished">2015-12-21</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>这篇论文是2010年Anil K.Jain在《Pattern Recognition Letters》上发表的，作者主要论述了50年来K-means算法的发展及演变。K-means算法是机器学习领域的十大经典算法，其应用非常广泛。通过自己的理解，我现在将这篇论文翻译如下，不当之处请各位指正。</p>
+<hr>
+<p>#Abstract</p>
+<p>将数据有效的分类是理解和学习的最基本的形式之一。比如，科学分类的常用形式是将物体放入分类系统进行分类：区域，界，系或者类等。聚类分析是一种正式的研究方法和分类算法，它根据测量(或感知)对象之间的内在特征(或者相似性)。聚类分析没有识别对象的类别标签，如类标签。相比于监督学习，非监督学习缺乏聚类数据的类别信息。聚类的目标是找到数据中的结构，然后将此结构扩展成自然形式。聚类在各种科学领域中具有漫长而丰富的历史，其中最简单常用的聚类算法是在1955年提出的K-means算法。尽管</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sophia07blog.cf/2015/12/21/Data clustering 50 years beyond K_means/" data-id="ciifjdj0q0000f0nllvro9w31" class="article-share-link">分享到</a>
+      
+        <a href="http://sophia07blog.cf/2015/12/21/Data clustering 50 years beyond K_means/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
+      <article id="post-Spectral Clustering" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+	
+		<a href="/2015/12/10/Spectral Clustering/" itemprop="url"><img src="http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg" class="article-banner"></a>
+	
+
+
+
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/10/Spectral Clustering/">谱聚类</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2015/12/10/Spectral Clustering/">
+      <time datetime="2015-12-10T03:24:11.937Z" itemprop="datePublished">2015-12-10</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Data-mining/">Data mining</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <h1 id="1-引言">1.引言</h1><p>谱聚类是一种在探索性数据分析中使用最为广泛的技术，其应用涉及到统计、计算科学、生物学、社会科学或者心理学。几乎每个科学领域在处理实验数据过程中，人们都尝试通过识别数据中具有“相似特征”的类别来获取该数据的第一印象。本文将为读者介绍谱聚类方法。相比于传统算法如k-means或者最短距离法(single linkage)，谱聚类具有很多基本的优点。通过谱聚类获得的结果通常要比传统聚类获得的结果要好，并且谱聚类非常易于实现，能够通过标准线性代数方法有效地求解。</p>
+<p>本文主要介绍谱聚类方法。我们分析了关于谱聚类不同的观点和谱聚类的工作机制。除了基本的线性代数，读者不需要具有特定的数学背景。同时，由于关于谱聚类的文献数量太多，我们不再赘述关于谱聚类的所有文献。本文前两个部分主要是逐步介绍关于谱聚类所使用的数学对象：相似图在第二部分，图的拉普拉斯矩阵在第三部分。谱聚类算法的介绍在第四部分。接下来的三个部分将解释为什么这些算法有作用：第五部分描述了图的划分方法，第六部分是随机游走(random walk)的观点, 第七部分是扰动理论(perturbation theory)。在第八部分中，我们研究了一些与谱聚类相关的实际问题，第九部分讨论了一些谱聚类的扩展和关于谱聚类文献。</p>
+<h1 id="2-相似图">2.相似图</h1><p>给一组数据点$x_1,…,x_n$,在每一对数据点$x_i$和 $x<em>j$ 之间定义相似度$s</em>{ij}$,聚类的直接目标是把数据点分为几个不同的类别，使得同一类别中数据点的相似度最大，不同类别中数据点的相似度最小。如果我们只知道数据点之间的相似度信息，一个表示这些数据点比较好的方法是相似图的形式(similarity graph)$G=(V,E)$。 相似图中每一个顶点$v_i$表示一个数据点$x_i$。如果两个顶点$x_i$和$x<em>j$之间的相似度$s</em>{ij}$为正并且大于某个确定的阈值，那么这两个顶点是以$s_{ij}$为权重的边连接的。现在，聚类问题可以重新定义为相似图问题：我们需要找到一个这样的分割，不同类别之间的边具有非常低的权重，而同一类别中的边具有比较高的权重(这意味着在同一类中的数据点是相似的)。为了能够形式化这样的表示，我们首先介绍一些图的基本定义，简要讨论一下我们将要研究的图的种类。</p>
+<h2 id="2-1_图的定义">2.1 图的定义</h2><p>$G=(V,E)$是一个无向图，顶点集为$V={v_1,…,v_n}$. 下面我们假定图$G$是有权的，也就是说每两个顶点$v_i和v<em>j$有一个非负的权重$w</em>{ij}&gt;=0$。图的加权邻接矩阵是$W=(w<em>{ij})</em>{i,j=1,…,n}$。如果$w_{ij}=0$意味着顶点$v_i$和$v<em>j$之间没有边连接。因为$G$是无向图，我们令$w</em>{ij}=w_{ji}$。顶点$v_i \in V$的度定义如下：</p>
+<p>$d<em>i=\sum{n}{j=1}w</em>{ij}.$</p>
+<p>请注意，事实上，上式只计算了与$v_i$邻接的所有顶点，其他顶点的权重都为0。度矩阵$D$是对角矩阵，其对角线上的度为$d_i,…,d_n$。给定一个顶点子集$A \subset B$，我们用</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sophia07blog.cf/2015/12/10/Spectral Clustering/" data-id="cihm07sv90000f0nlilm2ilhq" class="article-share-link">分享到</a>
+      
+        <a href="http://sophia07blog.cf/2015/12/10/Spectral Clustering/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-codebloks" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -203,7 +333,7 @@
     
       
 	
-		<a href="/2015/10/23/hanoi_tower/" itemprop="url"><img src="http://7xo792.com1.z0.glb.clouddn.com/tower1.jpg" class="article-banner"></a>
+		<a href="/2015/11/08/hanoi_tower/" itemprop="url"><img src="http://7xo792.com1.z0.glb.clouddn.com/tower1.jpg" class="article-banner"></a>
 	
 
 
@@ -215,7 +345,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/23/hanoi_tower/">汉诺塔</a>
+      <a class="article-title" href="/2015/11/08/hanoi_tower/">汉诺塔</a>
     </h1>
   
 
@@ -223,8 +353,8 @@
           
   <div class="article-date">
     <i class="fa fa-calendar"></i>
-    <a href="/2015/10/23/hanoi_tower/">
-      <time datetime="2015-10-22T16:00:00.000Z" itemprop="datePublished">2015-10-23</time>
+    <a href="/2015/11/08/hanoi_tower/">
+      <time datetime="2015-11-07T16:00:00.000Z" itemprop="datePublished">2015-11-08</time>
     </a>
   </div>
 
@@ -241,9 +371,9 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <h2 id="问题描述">问题描述</h2><p>有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。</p>
+        <h2 id="1-_问题描述">1. 问题描述</h2><p>有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。</p>
 <p>描述简化：把A柱上的n个盘子移动到C柱，其中可以借用B柱。</p>
-<h2 id="简单分析">简单分析</h2><p>假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：</p>
+<h2 id="2-_简单分析">2. 简单分析</h2><p>假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：</p>
 <ol>
 <li><p><strong>状态0</strong> A: 按顺序堆放的n个盘子。 B：空的。 C：空的。<br>目标需要把A上的n个盘子移动到C，而且C盘最下面的盘子应该是最大的盘子，标号为n。要取得A上的第n个盘子，需要把它上面的n-1个盘子拿开放在B柱上。当然B柱上的盘子也是按照大在下小在上的原则堆放的。</p>
 <p>这一步完成之后三个塔变为状态一。</p>
@@ -251,9 +381,11 @@
 <li><p><strong>状态1</strong> A：只有最大的一个盘子。 B:按规则堆放的n-1个盘子。 C:空的。<br>这时候可以直接把A上的最大盘移动到C盘，移动后的状态：中间状态——A：空的。B：n-1个盘子。C：有一个最大盘（第n个盘子）。<br>这时候C柱其实可以看做空的，因为剩下的的所有盘子都比它小，任何一个盘子都可以放在C柱上。所以现在的状态： 中间状态——A：空的。B：n-1个盘子。C：空的。<br>现在的问题和原问题有些相似之处，如果把B柱上的n-1个盘子移动到A柱上，那么现在的问题和原问题相比就只是规模变小了而已。把B上的n-1个盘子移动到A上，其实和上文中把n-1个盘子从A柱移动到B柱是一样的，只是柱子的名称换了一下而已。（如果写成函数，只是参数的调用顺序改变了而已）</p>
 </li>
 </ol>
-<p>3.<strong>状态2</strong> A：按顺序对方的n-1个盘子。B：空的。C：按顺序堆放的第n个盘子（可看为空柱）</p>
+<ol>
+<li><strong>状态2</strong> A：按顺序对方的n-1个盘子。B：空的。C：按顺序堆放的第n个盘子（可看为空柱）</li>
+</ol>
 <p>此时我们完成了一次完美的递归，从状态0到状态2，除了规模变小，其他方面没有任何区别了。</p>
-<h2 id="算法实现">算法实现</h2><h3 id="定义函数:">定义函数:</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hanoi（a,b,c,<span class="keyword">n</span>）<span class="comment">//表示把a上的n个盘子移动到c上，其中可以用到b。</span></span><br><span class="line"><span class="keyword">move</span>（<span class="keyword">m</span>,<span class="keyword">n</span>）<span class="comment">//表示把m上的盘子移动到n上</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-_算法实现">3. 算法实现</h2><h3 id="定义函数:">定义函数:</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hanoi（a,b,c,<span class="keyword">n</span>）<span class="comment">//表示把a上的n个盘子移动到c上，其中可以用到b。</span></span><br><span class="line"><span class="keyword">move</span>（<span class="keyword">m</span>,<span class="keyword">n</span>）<span class="comment">//表示把m上的盘子移动到n上</span></span><br></pre></td></tr></table></figure>
 <h3 id="算法流程：">算法流程：</h3><ol>
 <li>把A上的n-1个移动到B：Hanoi（a,c,b,n-1）//状态1</li>
 <li>把A上的最后一个大盘子移动到C：move（a,c）</li>
@@ -264,9 +396,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://sophia07blog.cf/2015/10/23/hanoi_tower/" data-id="cigw93ilb0000dknlwdvww05z" class="article-share-link">分享到</a>
+      <a data-url="http://sophia07blog.cf/2015/11/08/hanoi_tower/" data-id="cigw93ilb0000dknlwdvww05z" class="article-share-link">分享到</a>
       
-        <a href="http://sophia07blog.cf/2015/10/23/hanoi_tower/#ds-thread" class="article-comment-link">评论</a>
+        <a href="http://sophia07blog.cf/2015/11/08/hanoi_tower/#ds-thread" class="article-comment-link">评论</a>
       
       
     </footer>
@@ -289,6 +421,40 @@
           <li>
             
             <div class="item-thumbnail">
+              <a href="/2015/12/21/Data clustering 50 years beyond K_means/" class="thumbnail">
+  
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg)" alt="Data clustering 50 years beyond K-means" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a></p>
+              <p class="item-title"><a href="/2015/12/21/Data clustering 50 years beyond K_means/" class="title">Data clustering 50 years beyond K-means</a></p>
+              <p class="item-date"><time datetime="2015-12-21T05:42:00.192Z" itemprop="datePublished">2015-12-21</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
+              <a href="/2015/12/10/Spectral Clustering/" class="thumbnail">
+  
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg)" alt="谱聚类" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/Data-mining/">Data mining</a></p>
+              <p class="item-title"><a href="/2015/12/10/Spectral Clustering/" class="title">谱聚类</a></p>
+              <p class="item-date"><time datetime="2015-12-10T03:24:11.937Z" itemprop="datePublished">2015-12-10</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
               <a href="/2015/11/24/codebloks/" class="thumbnail">
   
     <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/pc-tools-header.jpg)" alt="Code Blocks中配置OpenGL方法" class="thumbnail-image"></span>
@@ -306,7 +472,7 @@
           <li>
             
             <div class="item-thumbnail">
-              <a href="/2015/10/23/hanoi_tower/" class="thumbnail">
+              <a href="/2015/11/08/hanoi_tower/" class="thumbnail">
   
     <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/tower1.jpg)" alt="汉诺塔" class="thumbnail-image"></span>
   
@@ -315,8 +481,8 @@
             
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Algorithms/">Algorithms</a></p>
-              <p class="item-title"><a href="/2015/10/23/hanoi_tower/" class="title">汉诺塔</a></p>
-              <p class="item-date"><time datetime="2015-10-22T16:00:00.000Z" itemprop="datePublished">2015-10-23</time></p>
+              <p class="item-title"><a href="/2015/11/08/hanoi_tower/" class="title">汉诺塔</a></p>
+              <p class="item-date"><time datetime="2015-11-07T16:00:00.000Z" itemprop="datePublished">2015-11-08</time></p>
             </div>
           </li>
         
@@ -329,7 +495,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-mining/">Data mining</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -342,7 +508,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">October 2015</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -387,6 +553,14 @@
 
 <script src="/js/script.js" type="text/javascript"></script>
 
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
   </div>
 </body>
 </html>

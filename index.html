@@ -135,7 +135,7 @@
     
       
 	
-		<a href="/2015/12/21/Data clustering 50 years beyond K_means/" itemprop="url"><img src="http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg" class="article-banner"></a>
+		<a href="/2015/12/21/Data clustering 50 years beyond K_means/" itemprop="url"><img src="http://7xo792.com1.z0.glb.clouddn.com/365.jpg" class="article-banner"></a>
 	
 
 
@@ -156,7 +156,7 @@
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2015/12/21/Data clustering 50 years beyond K_means/">
-      <time datetime="2015-12-21T05:42:00.192Z" itemprop="datePublished">2015-12-21</time>
+      <time datetime="2015-12-20T16:00:00.000Z" itemprop="datePublished">2015-12-21</time>
     </a>
   </div>
 
@@ -173,10 +173,22 @@
     <div class="article-entry" itemprop="articleBody">
       
                 
-        <p>这篇论文是2010年Anil K.Jain在《Pattern Recognition Letters》上发表的，作者主要论述了50年来K-means算法的发展及演变。K-means算法是机器学习领域的十大经典算法，其应用非常广泛。通过自己的理解，我现在将这篇论文翻译如下，不当之处请各位指正。</p>
+        <p>这篇论文是2010年Anil K.Jain在《Pattern Recognition Letters》上发表的，作者主要论述了50年来K-means算法的发展及演变。K-means算法是机器学习领域的十大经典算法，其应用非常广泛。通过自己的理解，我将这篇论文翻译如下，如不当之处请各位指正。</p>
 <hr>
-<p>#Abstract</p>
-<p>将数据有效的分类是理解和学习的最基本的形式之一。比如，科学分类的常用形式是将物体放入分类系统进行分类：区域，界，系或者类等。聚类分析是一种正式的研究方法和分类算法，它根据测量(或感知)对象之间的内在特征(或者相似性)。聚类分析没有识别对象的类别标签，如类标签。相比于监督学习，非监督学习缺乏聚类数据的类别信息。聚类的目标是找到数据中的结构，然后将此结构扩展成自然形式。聚类在各种科学领域中具有漫长而丰富的历史，其中最简单常用的聚类算法是在1955年提出的K-means算法。尽管</p>
+<h1 id="摘要">摘要</h1><p>将数据有效地分类是理解和学习的最基本的形式之一。比如，科学分类的常用形式是将物体放入分类系统进行分类：区域，界，系或者类等。聚类分析是一种正式的研究方法和分类算法，它根据测量(或感知)对象之间的内在特征(或者相似性)。聚类分析没有识别对象的类别标签，如类标签。相比于监督学习，非监督学习缺乏聚类数据的类别信息。聚类的目标是找到数据中的结构，然后将此结构扩展成自然形式。聚类在各种科学领域中具有漫长而丰富的历史，其中最简单常用的聚类算法是在1955年提出的K-means算法。尽管距离K-means算法的提出已经50多年，并且在它之后也提出了很多新算法，K-means算法仍然得到了广泛的应用。一般来说，设计一个通用的聚类算法是困难的，并且聚类算法存在不适定问题。我们对聚类进行了一个简要的概述，总结了一些常见的聚类方法。我们讨论了设计聚类算法时的主要挑战和关键问题，然后指出一些新的和有用的研究方向，其中包括半监督聚类(semi-supervised clustering)，整体聚类(ensemble clustering)，聚类过程中的特征选择和大尺度的数据聚类。</p>
+<h1 id="1-_引言">1. 引言</h1><p>随着传感和存储技术的进步，网络搜索、数字图像以及视频监控产生了很多大容量和高维的数据集。据估计，2007年数字宇宙大约消耗了281 exabyte，预计2011年的数量大约是这个数据的10倍(1 exabyte是$10^{18}$ bytes或者1,000,000 TB)(Gantz, 2008) 。大部分数据按位存储在电子媒介中，这为自动数据分析的发展、分类和检索提供了巨大的潜力。随着数据量的大量增长，各种各样的可用数据(文本、图像和视频)也随之增加。便宜的数码相机和视频设备产生了巨大数量的图像和视频。由于RFID标签和调制器的低成本和小尺寸，使得数以百万计的传感器有规律地传输数据。每天邮件、博客、事务数据以及数十亿的网页将产生巨大数量的新数据。很多数据流是松散的，这增加了分析他们的难度。</p>
+<p>我们需要通过改进自动理解、过程以及归纳数据的方法来应对数据的数量和多样性的增加。数据分析技术能够广泛地分为主要两类(Tukey, 1977)：(1)探索或描述，就是说研究者不需要预先指定的模型或者假设，希望去理解高位数据的一般特征或者结构。(2)确认或推论，就是说研究者希望确定假设/模型或者一组给定的数据假设的可靠性。很多统计方法已经被提出用于分析数据，例如方差分析、线性回归、判别分析、典型相关分析、多维定标、因子分析、主成分分析、聚类分析等。更多概述可以参考(Tukey, 1977)。</p>
+<p>在模式识别中，数据分析关注于预测建模：给定一些训练数据，我们希望预测未知的测试数据的行为。这个任务也被称为learning。通常来说，在学习问题中的一个明确的区分：(1).有监督(supervised)学习,例如分类(2).无监督(unsupervised)学习,例如聚类(Duda et al., 2001 )。有监督的学习只包含有标签的数据(具有已知分类标签的训练集)，而无监督的学习只包含未标签的数据。聚类问题相比于分类问题更加具有挑战性。现在一种混合模式越来越受到关注，即半监督学习(semi-supervised learning)(Chapelle et al.,2006))。在半监督分类中，只有一小部分的训练数据是有标签的。未标记的数据(包括被忽略的数据)也在学习过程中运用到。在半监督聚类中，不是通过指定类别标签，而是指定成对约束，即先验知识中的弱编码。一对连接约束(must-link)相当于两个对象之间应该具有相同的聚类标签，而一对非连接约束(cannot-link)相当于两个对象之间具有不同的聚类标签。约束在数据聚类中非常有用 (Lange et al., 2005; Basu et al., 2008), 尤其是在底层聚类缺乏精确定义的情况下。在寻找好的模型中，我们会包括所有提供的信息，无论是被标记的数据、被约束的数据或者标记的数据。Fig.1说明了模式识别和机器学习中感兴趣的各类学习问题。</p>
+<p><img src="http://7xo792.com1.z0.glb.clouddn.com/k-meansFig1.jpg" alt=""></p>
+<h1 id="2-_数据聚类">2. 数据聚类</h1><p>数据聚类(聚类分析)指的是发现一组模式、点或者对象的自然分类。Webster(Merriam-Webster Online Dictionary, 2008)将聚类分析定义为”在多个特征中通过定量比较来寻找一群个体中单个个体所属类别的统计分类技术”。Fig.2表示了聚类的一个例子。目标是在未标记数据(Fig.2a)中创建一个能够发现自然分类(Fig.2b)的自动算法。</p>
+<p><img src="http://7xo792.com1.z0.glb.clouddn.com/k-meansFig2.jpg" alt=""></p>
+<h2 id="2-1_为什么用聚类">2.1 为什么用聚类</h2><p>聚类分析是一种涉及任何学科的多变量分析。Google Scholar(2009)在2007年的词目中查询到1660条关于“data clustering”的词目。这个巨大的文献库说明了聚类在数据分析中的重要性。详尽地列出在众多科学领域和应用中运用的聚类技术以及成千上万的算法是非常困难的。图像分割是计算机视觉当中的重要问题，能够表示为一个聚类问题(Jain and Flynn, 1996; Frigui and Krishnapuram, 1999; Shi and Malik, 2000)。文档也可以被聚类(Iwayama and Tokunaga, 1995)，产生局部层次用来有效地信息评估(Sahami, 1998)或者检索(Bhatia and<br>Deogun, 1998)。聚类也用来消费者分类，进行有效地市场营销(Arabie and Hubert, 1994)，或者服务交付项目分类，用来劳动力管理和计划(Hu et al., 2007)，同时也可以在生物领域中研究基因组计划(Baldi and Hatfield, 2002)。</p>
+<p>数据聚类已经被应用到以下三个主要的用途：</p>
+<p>1.<em>底层结构(Underlying structure)：</em> 用来理解数据，生成假设，检测异常和识别特征。<br>2.<em>自然分类(Natural classification)：</em> 用来识别形式或者生物之间的相似度(系统发育关系)。<br>3.<em>压缩(Compression)：</em> 作为通过集群原型来组织数据和归纳的一种方法。</p>
+<p>关于类别发现的一个例子如Fig.3所示。在手写字符识别应用程序，聚类被用来识别子类 (Connell and Jain, 2002)。不同的用户书写相同数字的方式是不同的，从而增加了类中方差。从一个类别中对训练集进行聚类可以得到新的子类，称为手写字符的词位(lexemes)。相比对每一个字符采用单一模式，基于子类数量的多模式提高了识别效率。</p>
+<p><img src="http://7xo792.com1.z0.glb.clouddn.com/k-meansFig3.jpg" alt=""></p>
+<h2 id="2-2_发展历史">2.2 发展历史</h2><p>聚类方法的发展历史已经成为一个真正的跨学科方法。分类学、社会学、心理学、生物学、统计学、数学、工程学、计算机科学、医学研究和其他收集实际过程数据的学科都涉及到聚类方法。根据JSTOR(2009)，data clustering首次出现在1954年的一篇处理人类学数据的论文标题当中。根据不同的领域，数据聚类也被称为Q-分析、类型学、聚合和分类学(Jain and Dubes, 1988)。有几本关于数据聚类的经典书籍的作者有：Sokal and Sneath (1963), Anderberg (1973), Hartigan (1975), Jain and Dubes (1988), and Duda et al. (2001). 聚类算法也在数据挖掘中被广泛地运用，可以参考Han and Kamber (2000) and Tan et al. (2005)的书籍以及机器学习(Bishop, 2006)。</p>
+<p>聚类算法可以大致分为两类：基于层次的(hierarchical)和基于划分的(partitional)。 层次聚类算法在聚集的模式中递归地找到嵌套聚类</p>
 
       
     </div>
@@ -199,7 +211,7 @@
     
       
 	
-		<a href="/2015/12/10/Spectral Clustering/" itemprop="url"><img src="http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg" class="article-banner"></a>
+		<a href="/2015/12/10/Spectral Clustering/" itemprop="url"><img src="http://7xo792.com1.z0.glb.clouddn.com/image4.jpg" class="article-banner"></a>
 	
 
 
@@ -220,7 +232,7 @@
   <div class="article-date">
     <i class="fa fa-calendar"></i>
     <a href="/2015/12/10/Spectral Clustering/">
-      <time datetime="2015-12-10T03:24:11.937Z" itemprop="datePublished">2015-12-10</time>
+      <time datetime="2015-12-09T16:00:00.000Z" itemprop="datePublished">2015-12-10</time>
     </a>
   </div>
 
@@ -385,7 +397,7 @@
 <li><strong>状态2</strong> A：按顺序对方的n-1个盘子。B：空的。C：按顺序堆放的第n个盘子（可看为空柱）</li>
 </ol>
 <p>此时我们完成了一次完美的递归，从状态0到状态2，除了规模变小，其他方面没有任何区别了。</p>
-<h2 id="3-_算法实现">3. 算法实现</h2><h3 id="定义函数:">定义函数:</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hanoi（a,b,c,<span class="keyword">n</span>）<span class="comment">//表示把a上的n个盘子移动到c上，其中可以用到b。</span></span><br><span class="line"><span class="keyword">move</span>（<span class="keyword">m</span>,<span class="keyword">n</span>）<span class="comment">//表示把m上的盘子移动到n上</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-_算法实现">3. 算法实现</h2><h3 id="定义函数:">定义函数:</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">Hanoi</span><span class="params">(a,b,c,n)</span></span><span class="comment">//表示把a上的n个盘子移动到c上，其中可以用到b。</span></span><br><span class="line"><span class="function"><span class="title">move</span><span class="params">(m,n)</span></span><span class="comment">//表示把m上的盘子移动到n上</span></span><br></pre></td></tr></table></figure>
 <h3 id="算法流程：">算法流程：</h3><ol>
 <li>把A上的n-1个移动到B：Hanoi（a,c,b,n-1）//状态1</li>
 <li>把A上的最后一个大盘子移动到C：move（a,c）</li>
@@ -423,7 +435,7 @@
             <div class="item-thumbnail">
               <a href="/2015/12/21/Data clustering 50 years beyond K_means/" class="thumbnail">
   
-    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg)" alt="Data clustering 50 years beyond K-means" class="thumbnail-image"></span>
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/365.jpg)" alt="Data clustering 50 years beyond K-means" class="thumbnail-image"></span>
   
 </a>
             </div>
@@ -431,7 +443,7 @@
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a></p>
               <p class="item-title"><a href="/2015/12/21/Data clustering 50 years beyond K_means/" class="title">Data clustering 50 years beyond K-means</a></p>
-              <p class="item-date"><time datetime="2015-12-21T05:42:00.192Z" itemprop="datePublished">2015-12-21</time></p>
+              <p class="item-date"><time datetime="2015-12-20T16:00:00.000Z" itemprop="datePublished">2015-12-21</time></p>
             </div>
           </li>
         
@@ -440,7 +452,7 @@
             <div class="item-thumbnail">
               <a href="/2015/12/10/Spectral Clustering/" class="thumbnail">
   
-    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg)" alt="谱聚类" class="thumbnail-image"></span>
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/image4.jpg)" alt="谱聚类" class="thumbnail-image"></span>
   
 </a>
             </div>
@@ -448,7 +460,7 @@
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Data-mining/">Data mining</a></p>
               <p class="item-title"><a href="/2015/12/10/Spectral Clustering/" class="title">谱聚类</a></p>
-              <p class="item-date"><time datetime="2015-12-10T03:24:11.937Z" itemprop="datePublished">2015-12-10</time></p>
+              <p class="item-date"><time datetime="2015-12-09T16:00:00.000Z" itemprop="datePublished">2015-12-10</time></p>
             </div>
           </li>
         

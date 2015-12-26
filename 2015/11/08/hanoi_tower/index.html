@@ -15,7 +15,7 @@
 <meta property="og:description" content="1. 问题描述有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。
 描述简化：把A柱上的n个盘子移动到C柱，其中可以借用B柱。
 2. 简单分析假设有n个盘子，我们把盘子从小到大标记为1、2、3…n。三柱子一共有三个状态：">
-<meta property="og:updated_time" content="2015-11-30T14:37:29.870Z">
+<meta property="og:updated_time" content="2015-12-22T11:55:00.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汉诺塔">
 <meta name="twitter:description" content="1. 问题描述有一个梵塔，塔内有三个座A、B、C，A座上有诺干个盘子，盘子大小不等，大的在下，小的在上(如图)。把这些个盘子从A座移到C座，中间可以借用B座但每次只能允许移动一个盘子，并且在移动过程中，3个座上的盘子始终保持大盘在下，小盘在上。
@@ -193,7 +193,7 @@
 <li><strong>状态2</strong> A：按顺序对方的n-1个盘子。B：空的。C：按顺序堆放的第n个盘子（可看为空柱）</li>
 </ol>
 <p>此时我们完成了一次完美的递归，从状态0到状态2，除了规模变小，其他方面没有任何区别了。</p>
-<h2 id="3-_算法实现">3. 算法实现</h2><h3 id="定义函数:">定义函数:</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hanoi（a,b,c,<span class="keyword">n</span>）<span class="comment">//表示把a上的n个盘子移动到c上，其中可以用到b。</span></span><br><span class="line"><span class="keyword">move</span>（<span class="keyword">m</span>,<span class="keyword">n</span>）<span class="comment">//表示把m上的盘子移动到n上</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-_算法实现">3. 算法实现</h2><h3 id="定义函数:">定义函数:</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">Hanoi</span><span class="params">(a,b,c,n)</span></span><span class="comment">//表示把a上的n个盘子移动到c上，其中可以用到b。</span></span><br><span class="line"><span class="function"><span class="title">move</span><span class="params">(m,n)</span></span><span class="comment">//表示把m上的盘子移动到n上</span></span><br></pre></td></tr></table></figure>
 <h3 id="算法流程：">算法流程：</h3><ol>
 <li>把A上的n-1个移动到B：Hanoi（a,c,b,n-1）//状态1</li>
 <li>把A上的最后一个大盘子移动到C：move（a,c）</li>
@@ -253,7 +253,7 @@
             <div class="item-thumbnail">
               <a href="/2015/12/21/Data clustering 50 years beyond K_means/" class="thumbnail">
   
-    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg)" alt="Data clustering 50 years beyond K-means" class="thumbnail-image"></span>
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/365.jpg)" alt="Data clustering 50 years beyond K-means" class="thumbnail-image"></span>
   
 </a>
             </div>
@@ -261,7 +261,7 @@
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Machine-Learning/">Machine Learning</a></p>
               <p class="item-title"><a href="/2015/12/21/Data clustering 50 years beyond K_means/" class="title">Data clustering 50 years beyond K-means</a></p>
-              <p class="item-date"><time datetime="2015-12-21T05:42:00.192Z" itemprop="datePublished">2015-12-21</time></p>
+              <p class="item-date"><time datetime="2015-12-20T16:00:00.000Z" itemprop="datePublished">2015-12-21</time></p>
             </div>
           </li>
         
@@ -270,7 +270,7 @@
             <div class="item-thumbnail">
               <a href="/2015/12/10/Spectral Clustering/" class="thumbnail">
   
-    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/data-mining1.jpg)" alt="谱聚类" class="thumbnail-image"></span>
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/image4.jpg)" alt="谱聚类" class="thumbnail-image"></span>
   
 </a>
             </div>
@@ -278,7 +278,7 @@
             <div class="item-inner">
               <p class="item-category"><a class="article-category-link" href="/categories/Data-mining/">Data mining</a></p>
               <p class="item-title"><a href="/2015/12/10/Spectral Clustering/" class="title">谱聚类</a></p>
-              <p class="item-date"><time datetime="2015-12-10T03:24:11.937Z" itemprop="datePublished">2015-12-10</time></p>
+              <p class="item-date"><time datetime="2015-12-09T16:00:00.000Z" itemprop="datePublished">2015-12-10</time></p>
             </div>
           </li>
         

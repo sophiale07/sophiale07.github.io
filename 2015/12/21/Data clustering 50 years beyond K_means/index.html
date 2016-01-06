@@ -18,7 +18,7 @@
 <meta property="og:image" content="http://7xo792.com1.z0.glb.clouddn.com/k-meansFig1.jpg">
 <meta property="og:image" content="http://7xo792.com1.z0.glb.clouddn.com/k-meansFig2.jpg">
 <meta property="og:image" content="http://7xo792.com1.z0.glb.clouddn.com/k-meansFig3.jpg">
-<meta property="og:updated_time" content="2015-12-26T09:09:24.588Z">
+<meta property="og:updated_time" content="2015-12-28T06:35:55.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data clustering 50 years beyond K-means">
 <meta name="twitter:description" content="这篇论文是2010年Anil K.Jain在《Pattern Recognition Letters》上发表的，作者主要论述了50年来K-means算法的发展及演变。K-means算法是机器学习领域的十大经典算法，其应用非常广泛。通过自己的理解，我将这篇论文翻译如下，如不当之处请各位指正。
@@ -196,8 +196,10 @@
 <p>1.<em>底层结构(Underlying structure)：</em> 用来理解数据，生成假设，检测异常和识别特征。<br>2.<em>自然分类(Natural classification)：</em> 用来识别形式或者生物之间的相似度(系统发育关系)。<br>3.<em>压缩(Compression)：</em> 作为通过集群原型来组织数据和归纳的一种方法。</p>
 <p>关于类别发现的一个例子如Fig.3所示。在手写字符识别应用程序，聚类被用来识别子类 (Connell and Jain, 2002)。不同的用户书写相同数字的方式是不同的，从而增加了类中方差。从一个类别中对训练集进行聚类可以得到新的子类，称为手写字符的词位(lexemes)。相比对每一个字符采用单一模式，基于子类数量的多模式提高了识别效率。</p>
 <p><img src="http://7xo792.com1.z0.glb.clouddn.com/k-meansFig3.jpg" alt=""></p>
-<h2 id="2-2_发展历史">2.2 发展历史</h2><p>聚类方法的发展历史已经成为一个真正的跨学科方法。分类学、社会学、心理学、生物学、统计学、数学、工程学、计算机科学、医学研究和其他收集实际过程数据的学科都涉及到聚类方法。根据JSTOR(2009)，data clustering首次出现在1954年的一篇处理人类学数据的论文标题当中。根据不同的领域，数据聚类也被称为Q-分析、类型学、聚合和分类学(Jain and Dubes, 1988)。有几本关于数据聚类的经典书籍的作者有：Sokal and Sneath (1963), Anderberg (1973), Hartigan (1975), Jain and Dubes (1988), and Duda et al. (2001). 聚类算法也在数据挖掘中被广泛地运用，可以参考Han and Kamber (2000) and Tan et al. (2005)的书籍以及机器学习(Bishop, 2006)。</p>
-<p>聚类算法可以大致分为两类：基于层次的(hierarchical)和基于划分的(partitional)。 层次聚类算法在聚集的模式中递归地找到嵌套聚类</p>
+<h2 id="2-2_发展历史">2.2 发展历史</h2><p>聚类方法已经成为一个真正的跨学科方法。分类学、社会学、心理学、生物学、统计学、数学、工程学、计算机科学、医学研究和其他收集数据的学科都涉及到聚类方法。根据JSTOR(2009)，data clustering首次出现在1954年的一篇处理人类学数据的论文标题当中。根据不同的领域，数据聚类也被称为Q-分析、类型学、聚合和分类学(Jain and Dubes, 1988)。有几本关于数据聚类的经典书籍的作者有：Sokal and Sneath (1963), Anderberg (1973), Hartigan (1975), Jain and Dubes (1988), and Duda et al. (2001). 聚类算法也在数据挖掘中被广泛地运用，可以参考Han and Kamber (2000) and Tan et al. (2005)的书籍以及机器学习(Bishop, 2006)。</p>
+<p>聚类算法可以大致分为两类：基于层次的(hierarchical)和基于划分的(partitional)。 层次聚类算法在聚集的模式中递归地找到嵌套模式(从找到每个数据点的类别开始，融合最相似的一对类别从而相继形成聚类的层次结构)或者分裂(自顶向下)模式(从找到每个数据点的类别开始，递归地将每一个聚类分裂为更小的聚类)。相比基于层次聚类算法，基于划分的算法同时找到所有的聚类来作为数据的一个划分，没有强行形成一个层次结构。在层次聚类算法中，输入n$\times$n的相似度矩阵，其中n是集群中的对象数量。而在划分聚类算法中，能够输入n$\times$d的模式矩阵，其中n个对象嵌入了d维的特征空间中；同时也能够输入n$\times$n的相似度矩阵。注意相似度矩阵很容易从模式矩阵中推导，但是从相似度矩阵中推导模式矩阵则需要排序方法(比如多维标度测量(MDS))。</p>
+<p>最常用的层次聚类算法是单链接(single-link)和全连接(complete-link);最常用和最简单的划分聚类算法是K-means。基于可用数据的自然性质，划分聚类算法在模式识别当中是首选的，我们这里主要关注于此类算法。K-means算法具有丰富并多样的历史，因为它是在不同科学领域中独立被发现的，包括Steinhaus (1956), Lloyd (proposed in 1957, published in 1982), Ball and Hall (1965), and MacQueen (1967)。尽管K-means方法是在50多年前被提出的，它仍然是使用最为广泛的聚类算法。K-means算法实现简单、有效并且具有成功经验，这都是它如此受欢迎的原因。下面，我们首先总结K-means算法的发展，然后讨论在数据聚类中应用的主要方法。</p>
+<h2 id="2-3_K-means算法">2.3 K-means算法</h2><p>令$X={x_i},i=1,…,n$是n维数据点，要将这些数据点聚成K个聚类，$C={c_k,k=1,…,K}$.K-means算法找到一个划分，使得每个聚类中的均值与该聚类中的数据点的平方误差是最小的。令$\mu_k$是聚类$c_k$的均值，$\mu_k$与$c_k$中的数据点之间的平方误差定义为：</p>
 
       
     </div>
@@ -345,7 +347,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2000 - 2015 Sophia<br>
+      &copy; 2000 - 2016 Sophia<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

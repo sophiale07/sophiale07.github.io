@@ -97,7 +97,7 @@
     </div>
     <div class="article-info profile-block">
       <div class="article-info-block">
-        5
+        6
         <span>文章</span>
       </div>
       <div class="article-info-block">
@@ -130,6 +130,85 @@
 
       
       <section id="main">
+      <article id="post-Recover MBR" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      
+	
+		<a href="/2016/08/08/Recover MBR/" itemprop="url"><img src="http://7xo792.com1.z0.glb.clouddn.com/windows.jpg" class="article-banner"></a>
+	
+
+
+
+    
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/08/08/Recover MBR/">恢复Windows从MBR引导启动的方法</a>
+    </h1>
+  
+
+        <div class="article-meta">
+          
+  <div class="article-date">
+    <i class="fa fa-calendar"></i>
+    <a href="/2016/08/08/Recover MBR/">
+      <time datetime="2016-08-07T16:00:00.000Z" itemprop="datePublished">2016-08-08</time>
+    </a>
+  </div>
+
+
+          
+  <div class="article-category">
+  	<i class="fa fa-folder"></i>
+    <a class="article-category-link" href="/categories/Tools/">Tools</a>
+  </div>
+
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+                
+        <p>因为之前我一直在用的Fedora22系统失效了，想重装一下Linux，于是我脑子一热，在windows中直接把Linux的/boot所在分区给删了，后来发现这会导致重启后grub无法通过原来Linux的/boot下的grub配置文件找到Windows，进而将无法启动Windows，好在当时还没有重启计算机，于是赶紧把电脑上的数据备份了一下，然后开始查询解决的办法。</p>
+<h1 id="Windows下使用MbrFix重建MBR">Windows下使用MbrFix重建MBR</h1><p>删除Linux分区后导致重启无法进入Windows是因为，MBR中的grub需要从Linux的/boot目录中读取配置文件找到windows，但是当我们删除Linux分区之后，/boot目录下的配置文件也一并被删除了，所以无法进入windows。于是我们可以设法把grub替换掉，换成windows自己的引导程序。</p>
+<p>能使用这个方法的前提是，你准备删除或已经删除了Linux系统，但是还没有重启，这样比较简单，我们可以通过一个MbrFix工具将Windows引导程序写入MBR。</p>
+<p>下载MbrFix：<a href="http://7xo792.com1.z0.glb.clouddn.com/MbrFix.rar" target="_blank" rel="external">http://7xo792.com1.z0.glb.clouddn.com/MbrFix.rar</a></p>
+<p>解压文件，其中”MbrFix.exe”是适用于32位系统的程序，”MbrFix64.exe”是适用于64位系统的程序。将适用于当前系统的程序复制到C盘根目录下，然后打开cmd(注意必须以管理员身份运行)，依次输入以下命令：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /</span><br><span class="line">MbrFix /drive <span class="number">0</span> fixmbr /yes</span><br><span class="line"><span class="comment">/*如果是64位系统则是MbrFix64 /drive 0 fixmbr /yes*/</span></span><br></pre></td></tr></table></figure>
+<p>至此MBR重建完成，重启后系统直接进入windows。</p>
+<h1 id="使用Windows安装光盘重建MBR">使用Windows安装光盘重建MBR</h1><p>如果已经重启，无法进入windows，解决方法如下：</p>
+<p>我们需要一张windows的安装光盘，以Win7安装光盘为例，在选择完语言等设置后，点击下一步进入下一个界面，不要点击“继续安装”而是点击下面的“修复计算机”。接着在出现的界面中选择第一项，点击“下一步”，然后点击“命令提示符”，输入以下命令重建MBR：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bootrec </span>/fixmbr</span><br></pre></td></tr></table></figure>
+<p>　　<br>重建完成后，输入exit即可退出命令提示符，然后点击”重新启动”即可进入Windows系统。</p>
+<h1 id="主引导记录——MBR(Master_Boot_Recoder)">主引导记录——MBR(Master Boot Recoder)</h1><p>MBR通常存在于磁盘的第一扇区，大小为512Byte。MBR主要包括两部分：1.引导程序或者指向”分区引导记录”中引导程序的指针；2.分区表。Linux目前最常用的引导程序是”grub”，WinXP的引导程序是”NTLDR”，WinVista 和Win7的引导程序是”BCD”。</p>
+<p>如果我们在电脑上先装了Win7后又装Linux，并且装Linux时将grub引导程序选择安装在了MBR里，那么我们每次启动进入Windows时，引导的顺序是：</p>
+<p>[1].从MBR启动grub，grub读取Linux的boot数据(保存在“/boot”);</p>
+<p>[2].让用户选择是进入Linux还是Windows，如果选择Linux则开始[3],如果选择Windows则开始[4];</p>
+<p>[3].根据boot数据直接启动Linux，结束；</p>
+<p>[4].根据boot数据找到BCD/NTLDR；</p>
+<p>[5].BCD或NTLDR再根据自己的设置，直接启动Windows或是进行其它的引导。</p>
+<p>反之，如果我们先安装了Linux后再装Windows，由于Windows在安装时会将原来存在于MBR中的grub覆盖，故我们在装完Windows后重启，也会进不去Linux。(补充：Linux安装设置grub时能自动识别到Windows系统，并写入boot文件中；而Windows在安装时却不会理会已存在的Linux，而直接忽略之)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://sophiale07.github.io/2016/08/08/Recover MBR/" data-id="cirm09fip0000yonlxxfbelsc" class="article-share-link">分享到</a>
+      
+        <a href="http://sophiale07.github.io/2016/08/08/Recover MBR/#ds-thread" class="article-comment-link">评论</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+    
       <article id="post-Some Feeling" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -508,6 +587,23 @@
           <li>
             
             <div class="item-thumbnail">
+              <a href="/2016/08/08/Recover MBR/" class="thumbnail">
+  
+    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/windows.jpg)" alt="恢复Windows从MBR引导启动的方法" class="thumbnail-image"></span>
+  
+</a>
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category"><a class="article-category-link" href="/categories/Tools/">Tools</a></p>
+              <p class="item-title"><a href="/2016/08/08/Recover MBR/" class="title">恢复Windows从MBR引导启动的方法</a></p>
+              <p class="item-date"><time datetime="2016-08-07T16:00:00.000Z" itemprop="datePublished">2016-08-08</time></p>
+            </div>
+          </li>
+        
+          <li>
+            
+            <div class="item-thumbnail">
               <a href="/2016/08/04/Some Feeling/" class="thumbnail">
   
     <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/somefeeling.jpg)" alt="一些感悟" class="thumbnail-image"></span>
@@ -573,23 +669,6 @@
             </div>
           </li>
         
-          <li>
-            
-            <div class="item-thumbnail">
-              <a href="/2015/11/08/hanoi_tower/" class="thumbnail">
-  
-    <span style="background-image:url(http://7xo792.com1.z0.glb.clouddn.com/tower1.jpg)" alt="汉诺塔" class="thumbnail-image"></span>
-  
-</a>
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category"><a class="article-category-link" href="/categories/Algorithms/">Algorithms</a></p>
-              <p class="item-title"><a href="/2015/11/08/hanoi_tower/" class="title">汉诺塔</a></p>
-              <p class="item-date"><time datetime="2015-11-07T16:00:00.000Z" itemprop="datePublished">2015-11-08</time></p>
-            </div>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -599,7 +678,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-mining/">Data mining</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithms/">Algorithms</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Data-mining/">Data mining</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Life/">Life</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Machine-Learning/">Machine Learning</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tools/">Tools</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -612,7 +691,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
